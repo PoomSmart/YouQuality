@@ -1,0 +1,8 @@
+// Settings
+
+"ENABLED" = "Show quality button";
+"POSITION" = "Quality button position";
+"TOP" = "الأعلى";
+"TOP_DESC" = "في الجزء العلوي الأيمن، حيث يوجد زر التشغيل التلقائي وزر البث وغيرها.";
+"BOTTOM" = "الأسفل";
+"BOTTOM_DESC" = "في الجزء السفلي الأيمن، حيث يوجد زر ملء الشاشة.";
