@@ -1,7 +1,7 @@
 // Settings
 
-"ENABLED" = "Show quality button";
-"POSITION" = "Quality button position";
+"ENABLED" = "Отображать кнопку выбора качества";
+"POSITION" = "Позиция кнопки";
 "TOP" = "Сверху";
 "TOP_DESC" = "В правом верхнем углу, рядом с кнопками Автовоспроизведения, Субтитров и выпадающего меню.";
 "BOTTOM" = "Снизу";
