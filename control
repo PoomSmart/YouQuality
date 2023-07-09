@@ -6,6 +6,6 @@ Description: View/change video quality in YouTube faster.
 Maintainer: PoomSmart
 Author: PoomSmart
 Section: Tweaks
-Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay (>= 1.1.0)
 Depiction: https://poomsmart.github.io/repo/depictions/youquality.html
 SileoDepiction: https://poomsmart.github.io/repo/sileodepictions/youquality.json

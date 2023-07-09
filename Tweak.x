@@ -78,6 +78,10 @@ static UIImage *qualityImage(NSString *qualityLabel) {
     %orig;
 }
 
+- (YTQTMButton *)button:(NSString *)tweakId {
+    return [tweakId isEqualToString:TweakKey] ? self.qualityButton : %orig;
+}
+
 - (UIImage *)buttonImage:(NSString *)tweakId {
     return [tweakId isEqualToString:TweakKey] ? qualityImage(currentQualityLabel) : %orig;
 }
@@ -114,6 +118,10 @@ static UIImage *qualityImage(NSString *qualityLabel) {
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     %orig;
+}
+
+- (YTQTMButton *)button:(NSString *)tweakId {
+    return [tweakId isEqualToString:TweakKey] ? self.qualityButton : %orig;
 }
 
 - (UIImage *)buttonImage:(NSString *)tweakId {
