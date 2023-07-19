@@ -1,4 +1,4 @@
 // Settings
 
-"ENABLED" = "Show quality button";
-"POSITION" = "Quality button position";
+"ENABLED" = "画質ボタンを表示";
+"POSITION" = "画質ボタンの位置";
