@@ -41,10 +41,18 @@ static UIImage *qualityImage(NSString *qualityLabel) {
 
 %group Video
 
+NSString *getVideoQuality(NSString *label) {
+    if ([label hasPrefix:@"1080p"] && ![label isEqualToString:@"1080p60"])
+        return @"1080p";
+    if ([label hasPrefix:@"720p"] && ![label isEqualToString:@"720p60"])
+        return @"720p";
+    return label;
+}
+
 %hook YTSingleVideoController
 
 - (void)playerItem:(id)playerItem didSelectVideoFormat:(MLFormat *)format {
-    currentQualityLabel = [format qualityLabel];
+    currentQualityLabel = getVideoQuality([format qualityLabel]);
     [[NSNotificationCenter defaultCenter] postNotificationName:YouQualityUpdateNotification object:nil];
     %orig;
 }
