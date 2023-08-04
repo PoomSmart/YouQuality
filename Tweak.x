@@ -42,6 +42,10 @@ static UIImage *qualityImage(NSString *qualityLabel) {
 %group Video
 
 NSString *getVideoQuality(NSString *label) {
+    if ([label hasPrefix:@"2160p"] && ![label isEqualToString:@"2160p60"])
+        return @"2160p";
+    if ([label hasPrefix:@"1440p"] && ![label isEqualToString:@"1440p60"])
+        return @"1440p";
     if ([label hasPrefix:@"1080p"] && ![label isEqualToString:@"1080p60"])
         return @"1080p";
     if ([label hasPrefix:@"720p"] && ![label isEqualToString:@"720p60"])
