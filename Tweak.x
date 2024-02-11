@@ -25,7 +25,7 @@ NSString *currentQualityLabel = @"na";
 NSBundle *YouQualityBundle() {
     static NSBundle *bundle = nil;
     static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^{
         NSString *tweakBundlePath = [[NSBundle mainBundle] pathForResource:TweakKey ofType:@"bundle"];
         if (tweakBundlePath)
             bundle = [NSBundle bundleWithPath:tweakBundlePath];
@@ -74,7 +74,7 @@ NSString *getVideoQuality(NSString *label) {
 - (id)initWithDelegate:(id)delegate {
     self = %orig;
     self.qualityButton = [self createButton:TweakKey accessibilityLabel:@"Quality" selector:@selector(didPressYouQuality:)];
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
     return self;
 }
 
