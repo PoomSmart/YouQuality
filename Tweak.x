@@ -21,7 +21,7 @@
 @end
 
 NSString *YouQualityUpdateNotification = @"YouQualityUpdateNotification";
-NSString *currentQualityLabel = @"na";
+NSString *currentQualityLabel = @"N/A";
 
 NSBundle *YouQualityBundle() {
     static NSBundle *bundle = nil;
@@ -47,7 +47,7 @@ static void configureButtonStyle(YTQTMButton *button) {
         ? [defaultTypeStyle ytSansFontOfSize:10 weight:UIFontWeightSemibold]
         : [defaultTypeStyle fontOfSize:10 weight:UIFontWeightSemibold];
     button.titleLabel.font = font;
-    button.titleLabel.numberOfLines = 2;
+    button.titleLabel.numberOfLines = 3;
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
@@ -64,6 +64,8 @@ NSString *getCompactQualityLabel(MLFormat *format) {
         qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"1080p" withString:shouldShowFPS ? @"HD\n" : @"HD"];
     else if (shouldShowFPS)
         qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"p" withString:@"p\n"];
+    if ([qualityLabel hasSuffix:@" HDR"])
+        qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@" HDR" withString:@"\nHDR"];
     return qualityLabel;
 }
 
