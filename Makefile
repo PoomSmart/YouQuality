@@ -1,5 +1,5 @@
 TARGET := iphone:clang:latest:11.0
-PACKAGE_VERSION = 1.2.1
+PACKAGE_VERSION = 1.2.2
 INSTALL_TARGET_PROCESSES = YouTube
 ARCHS = arm64
 
@@ -9,6 +9,5 @@ TWEAK_NAME = YouQuality
 
 $(TWEAK_NAME)_FILES = Tweak.x
 $(TWEAK_NAME)_CFLAGS = -fobjc-arc
-$(TWEAK_NAME)_FRAMEWORKS = UIKit
 
 include $(THEOS_MAKE_PATH)/tweak.mk
