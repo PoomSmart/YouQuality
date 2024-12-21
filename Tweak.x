@@ -93,7 +93,7 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:YouQualityUpdateNotification object:nil];
     %orig;
 }
 
@@ -131,7 +131,7 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:YouQualityUpdateNotification object:nil];
     %orig;
 }
 
