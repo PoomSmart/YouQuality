@@ -5,13 +5,11 @@
 #define TweakKey @"YouQuality"
 
 @interface YTMainAppControlsOverlayView (YouQuality)
-@property (retain, nonatomic) YTQTMButton *qualityButton;
 - (void)didPressYouQuality:(id)arg;
 - (void)updateYouQualityButton:(id)arg;
 @end
 
 @interface YTInlinePlayerBarContainerView (YouQuality)
-@property (retain, nonatomic) YTQTMButton *qualityButton;
 - (void)didPressYouQuality:(id)arg;
 - (void)updateYouQualityButton:(id)arg;
 @end
@@ -80,14 +78,12 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 
 - (id)initWithDelegate:(id)delegate {
     self = %orig;
-    self.qualityButton = [self createTextButton:TweakKey accessibilityLabel:@"Quality" selector:@selector(didPressYouQuality:)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
     return self;
 }
 
 - (id)initWithDelegate:(id)delegate autoplaySwitchEnabled:(BOOL)autoplaySwitchEnabled {
     self = %orig;
-    self.qualityButton = [self createTextButton:TweakKey accessibilityLabel:@"Quality" selector:@selector(didPressYouQuality:)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
     return self;
 }
@@ -97,13 +93,9 @@ NSString *getCompactQualityLabel(MLFormat *format) {
     %orig;
 }
 
-- (YTQTMButton *)button:(NSString *)tweakId {
-    return [tweakId isEqualToString:TweakKey] ? self.qualityButton : %orig;
-}
-
 %new(v@:@)
 - (void)updateYouQualityButton:(id)arg {
-    [self.qualityButton setTitle:currentQualityLabel forState:0];
+    [self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:0];
 }
 
 %new(v@:@)
@@ -121,11 +113,8 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 
 %hook YTInlinePlayerBarContainerView
 
-%property (retain, nonatomic) YTQTMButton *qualityButton;
-
 - (id)init {
     self = %orig;
-    self.qualityButton = [self createTextButton:TweakKey accessibilityLabel:@"Quality" selector:@selector(didPressYouQuality:)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
     return self;
 }
@@ -135,13 +124,9 @@ NSString *getCompactQualityLabel(MLFormat *format) {
     %orig;
 }
 
-- (YTQTMButton *)button:(NSString *)tweakId {
-    return [tweakId isEqualToString:TweakKey] ? self.qualityButton : %orig;
-}
-
 %new(v@:@)
 - (void)updateYouQualityButton:(id)arg {
-    [self.qualityButton setTitle:currentQualityLabel forState:0];
+    [self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:0];
 }
 
 %new(v@:@)
@@ -156,7 +141,11 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 %end
 
 %ctor {
-    initYTVideoOverlay(TweakKey);
+    initYTVideoOverlay(TweakKey, @{
+        AccessibilityLabelKey: @"Quality",
+        SelectorKey: @"didPressYouQuality:",
+        AsTextKey: @YES
+    });
     %init(Video);
     %init(Top);
     %init(Bottom);
