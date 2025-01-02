@@ -17,6 +17,12 @@
 NSString *YouQualityUpdateNotification = @"YouQualityUpdateNotification";
 NSString *currentQualityLabel = @"N/A";
 
+static void setTextStyle(YTQTMButton *button) {
+    button.titleLabel.numberOfLines = 3;
+    [button setTitle:@"Auto" forState:0];
+    [button sizeToFit];
+}
+
 %group Video
 
 NSString *getCompactQualityLabel(MLFormat *format) {
@@ -66,12 +72,14 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 - (id)initWithDelegate:(id)delegate {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
+    setTextStyle(self.overlayButtons[TweakKey]);
     return self;
 }
 
 - (id)initWithDelegate:(id)delegate autoplaySwitchEnabled:(BOOL)autoplaySwitchEnabled {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
+    setTextStyle(self.overlayButtons[TweakKey]);
     return self;
 }
 
@@ -103,11 +111,13 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 - (id)init {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
+    setTextStyle(self.overlayButtons[TweakKey]);
     return self;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:YouQualityUpdateNotification object:nil];
+    setTextStyle(self.overlayButtons[TweakKey]);
     %orig;
 }
 
