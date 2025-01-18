@@ -20,10 +20,6 @@ NSString *currentQualityLabel = @"N/A";
 static void setButtonStyle(YTQTMButton *button) {
     button.titleLabel.numberOfLines = 3;
     [button setTitle:@"Auto" forState:0];
-    [button sizeToFit];
-    CGRect frame = button.frame;
-    frame.size.width = 24;
-    button.frame = frame;
 }
 
 %group Video
