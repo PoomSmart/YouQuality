@@ -66,8 +66,6 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 
 %hook YTMainAppControlsOverlayView
 
-%property (retain, nonatomic) YTQTMButton *qualityButton;
-
 - (id)initWithDelegate:(id)delegate {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
