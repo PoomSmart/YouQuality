@@ -69,14 +69,14 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 - (id)initWithDelegate:(id)delegate {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
-    setButtonStyle(self.overlayButtons[TweakKey]);
+    setButtonStyle((YTQTMButton *)self.overlayButtons[TweakKey]);
     return self;
 }
 
 - (id)initWithDelegate:(id)delegate autoplaySwitchEnabled:(BOOL)autoplaySwitchEnabled {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
-    setButtonStyle(self.overlayButtons[TweakKey]);
+    setButtonStyle((YTQTMButton *)self.overlayButtons[TweakKey]);
     return self;
 }
 
@@ -108,13 +108,13 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 - (id)init {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
-    setButtonStyle(self.overlayButtons[TweakKey]);
+    setButtonStyle((YTQTMButton *)self.overlayButtons[TweakKey]);
     return self;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:YouQualityUpdateNotification object:nil];
-    setButtonStyle(self.overlayButtons[TweakKey]);
+    setButtonStyle((YTQTMButton *)self.overlayButtons[TweakKey]);
     %orig;
 }
 
