@@ -87,7 +87,7 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 
 %new(v@:@)
 - (void)updateYouQualityButton:(id)arg {
-    [self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:UIControlStateNormal];
+    [(YTQTMButton *)self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:UIControlStateNormal];
 }
 
 %new(v@:@)
@@ -120,7 +120,7 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 
 %new(v@:@)
 - (void)updateYouQualityButton:(id)arg {
-    [self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:UIControlStateNormal];
+    [(YTQTMButton *)self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:UIControlStateNormal];
 }
 
 %new(v@:@)
