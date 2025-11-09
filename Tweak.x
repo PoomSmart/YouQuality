@@ -69,14 +69,14 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 - (id)initWithDelegate:(id)delegate {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
-    setButtonStyle((YTQTMButton *)self.overlayButtons[TweakKey]);
+    setButtonStyle(self.overlayButtons[TweakKey]);
     return self;
 }
 
 - (id)initWithDelegate:(id)delegate autoplaySwitchEnabled:(BOOL)autoplaySwitchEnabled {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
-    setButtonStyle((YTQTMButton *)self.overlayButtons[TweakKey]);
+    setButtonStyle(self.overlayButtons[TweakKey]);
     return self;
 }
 
@@ -87,7 +87,7 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 
 %new(v@:@)
 - (void)updateYouQualityButton:(id)arg {
-    [(YTQTMButton *)self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:UIControlStateNormal];
+    [self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:UIControlStateNormal];
 }
 
 %new(v@:@)
@@ -108,19 +108,19 @@ NSString *getCompactQualityLabel(MLFormat *format) {
 - (id)init {
     self = %orig;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateYouQualityButton:) name:YouQualityUpdateNotification object:nil];
-    setButtonStyle((YTQTMButton *)self.overlayButtons[TweakKey]);
+    setButtonStyle(self.overlayButtons[TweakKey]);
     return self;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:YouQualityUpdateNotification object:nil];
-    setButtonStyle((YTQTMButton *)self.overlayButtons[TweakKey]);
+    setButtonStyle(self.overlayButtons[TweakKey]);
     %orig;
 }
 
 %new(v@:@)
 - (void)updateYouQualityButton:(id)arg {
-    [(YTQTMButton *)self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:UIControlStateNormal];
+    [self.overlayButtons[TweakKey] setTitle:currentQualityLabel forState:UIControlStateNormal];
 }
 
 %new(v@:@)
