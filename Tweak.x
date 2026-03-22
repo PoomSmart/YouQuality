@@ -32,7 +32,9 @@ NSString *getCompactQualityLabel(MLFormat *format) {
     else if ([qualityLabel hasPrefix:@"1440p"])
         qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"1440p" withString:shouldShowFPS ? @"2K\n" : @"2K"];
     else if ([qualityLabel hasPrefix:@"1080p"])
-        qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"1080p" withString:shouldShowFPS ? @"HD\n" : @"HD"];
+        qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"1080p" withString:shouldShowFPS ? @"FHD\n" : @"FHD"];
+    else if ([qualityLabel hasPrefix:@"720p"])
+        qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"720p" withString:shouldShowFPS ? @"HD\n" : @"HD"];
     else if (shouldShowFPS)
         qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"p" withString:@"p\n"];
     if ([qualityLabel hasSuffix:@" HDR"])
