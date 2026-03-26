@@ -28,9 +28,9 @@ NSString *getCompactQualityLabel(MLFormat *format) {
     NSString *qualityLabel = [format qualityLabel];
     BOOL shouldShowFPS = [format FPS] > 30;
     if ([qualityLabel hasPrefix:@"2160p"])
-        qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"2160p" withString:shouldShowFPS ? @"4K\n" : @"4K"];
+        qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"2160p" withString:shouldShowFPS ? @"UHD\n" : @"UHD"];
     else if ([qualityLabel hasPrefix:@"1440p"])
-        qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"1440p" withString:shouldShowFPS ? @"2K\n" : @"2K"];
+        qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"1440p" withString:shouldShowFPS ? @"QHD\n" : @"QHD"];
     else if ([qualityLabel hasPrefix:@"1080p"])
         qualityLabel = [qualityLabel stringByReplacingOccurrencesOfString:@"1080p" withString:shouldShowFPS ? @"FHD\n" : @"FHD"];
     else if ([qualityLabel hasPrefix:@"720p"])
